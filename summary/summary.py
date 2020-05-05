@@ -19,6 +19,8 @@ def reduce_games(game):#game=player_games[0]
     res.append(('komi', game['komi']))
     res.append(('ranked', game['ranked']))
     res.append(('width', game['width']))
+    res.append(('hight', game['hight']))
+    res.append(('rules', game['rules']))
     res.append(('started', game['started']))
     res.append(('ended', game['ended']))
     players = game['historical_ratings'].keys()
@@ -46,7 +48,7 @@ We will extract all games from the files.
 games = []
 count = 0
 for f in range(len(listdir_)):
-    #f = 3
+    #f = 8993
     #print(f"Porcentaje de sumaryJson.py es del {int(count/len(listdir_)*100)}%",end='\r')
     count = count + 1
     file_path = os.path.join(files_dir, listdir_[f]) # Genera el path completo de un archivo
@@ -54,7 +56,6 @@ for f in range(len(listdir_)):
     games = games + list(map(reduce_games, player_games))
 
 
-#%%
 #map() le das una funcion y con que iterar.
 #lambda es para generar funciones cortas, le pasas las variables y con  dos puntos : la funciones
 
